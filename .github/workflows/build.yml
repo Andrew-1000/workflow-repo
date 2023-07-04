@@ -20,17 +20,12 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Install
+      - name: Install Dependencies
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Run Local Action
-        run: |
-          # Add the necessary commands to run your local action here
-      - name: Deploy
-        uses: Andrew-1000/workflow-repo
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_BRANCH: master
-          BRANCH: gh-pages
-          FOLDER: dist/spa
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist/spa
