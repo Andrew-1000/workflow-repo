@@ -22,8 +22,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install npm
         run: npm install -g npm@latest
-      - name: Update npm
-        run: nvm install 10
       - name: Install Quasar CLI
         run: npm install -g @quasar/cli
       - name: Build
