@@ -23,7 +23,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        uses: Andrew-1000/workflow-repo@master
+        uses: Andrew-1000/github-pages-deploy-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_BRANCH: master
