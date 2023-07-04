@@ -1,5 +1,5 @@
 import { boot } from 'quasar/wrappers'
-const axios = require('axios');
+import axios from 'axios'
 
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
