@@ -31,3 +31,4 @@ jobs:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: dist/spa
+          actions/checkout Default: ${{ github.repository }}
