@@ -13,6 +13,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+      - name: Install Dependencies
+        run: npm ci
       - name: Cache
         uses: actions/cache@v1
         with:
@@ -25,7 +27,7 @@ jobs:
       - name: Install Quasar CLI
         run: npm install -g @quasar/cli
       - name: Build
-        run: quasar build
+        run: npx quasar build
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
