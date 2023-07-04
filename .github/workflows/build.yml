@@ -7,8 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
           node-version: '10.x'
       - name: Cache
@@ -22,6 +24,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Run Local Action
+        run: |
+          # Add the necessary commands to run your local action here
       - name: Deploy
         uses: Andrew-1000/workflow-repo@master
         env:
@@ -29,4 +34,3 @@ jobs:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: dist/spa
-
